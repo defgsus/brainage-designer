@@ -45,4 +45,4 @@ jobs:
       - name: Run tests
         run: |
           source env/bin/activate
-          ./run_tests.sh
+          ./run-tests.sh
