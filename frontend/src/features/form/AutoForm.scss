@@ -1,0 +1,23 @@
+.parameter-help {
+  .parameter-type {
+    color: #aaa;
+  }
+}
+
+.autoform {
+  .file-input-wrapper {
+    min-width: 20rem;
+  }
+
+  .ant-form-item {
+    &.hidden { width: 0; height: 0; overflow: hidden; margin: 0; }
+    &.label-visible {
+      .ant-form-item-label {
+        margin: 0 0 8px;
+        padding: 0 4px;
+        background: linear-gradient(90deg, rgba(116, 116, 116, .3) 0%, rgba(216, 216, 216, 0) 100%);
+        border-radius: 5px;
+      }
+    }
+  }
+}

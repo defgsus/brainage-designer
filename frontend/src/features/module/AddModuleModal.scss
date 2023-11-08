@@ -1,0 +1,31 @@
+
+.module-select {
+  .group-name {
+    font-family: Monospaced, monospace;
+    padding-top: .5rem;
+  }
+  .group-modules {
+    padding-left: 1rem;
+
+    .module {
+
+      .module-name {
+        cursor: pointer;
+        padding-left: .2rem;
+
+        &:hover {
+          font-weight: bold;
+        }
+
+        &.selected {
+          background: #ccc;
+          font-weight: bold;
+        }
+      }
+
+      .module-description {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

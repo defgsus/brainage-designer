@@ -1,0 +1,34 @@
+.file-browser {
+  font-family: Menlo, Consolas, "Andale Mono", "Lucida Console", monospace;
+  .empty-dir {
+    color: #aaaaaa;
+  }
+  .file-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: .1rem;
+
+    .file-icon {
+      flex-shrink: 1;
+    }
+    .dir-name {
+      //flex-grow: 1;
+      font-weight: bold;
+      padding: 0 .2rem;
+
+      &.selectable:hover {
+        color: #337;
+        text-shadow: 1px 1px gray;
+      }
+      &.selected {
+        background: #ccc;
+      }
+    }
+    .file-name {
+      padding: 0 .2rem;
+    }
+  }
+  .sub-files {
+    margin-left: 1rem;
+  }
+}

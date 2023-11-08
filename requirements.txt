@@ -1,0 +1,13 @@
+# h5py==3.1.0    # requires extra package for mac python docker image
+matplotlib==3.6.3
+nibabel==3.2.2
+nilearn==0.9.2
+Pillow==8.4.0
+pymongo==4.1.1
+python-decouple==3.6
+requests==2.27.1
+scipy==1.5.4
+tornado==6.2
+tqdm==4.64.1
+xlrd==2.0.1
+https://github.com/JamesRitchie/scikit-rvm/archive/master.zip

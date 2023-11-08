@@ -1,0 +1,82 @@
+.ant-layout-header {
+
+  .anticon-loading {
+    svg path {
+      fill: #dfd;
+    }
+  }
+  .brain-logo {
+    width: 2rem;
+    height: 2rem;
+    background-image: url("../../../bad/static/img/brain.png");
+    background-size: 2rem;
+    margin-top: 1rem;
+  }
+  .header-content {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0 1rem;
+    background: #001529;
+    z-index: 100;
+    .layout-headline {
+      color: #eee;
+      font-size: 150%;
+    }
+  }
+}
+
+.bad-head {
+  background: linear-gradient(#ffffff, #efefef);
+}
+.bad-section {
+
+  transition: background-color 200ms ease;
+
+  .section-content {
+    padding: .7rem;
+  }
+
+  .bad-head {
+    background: linear-gradient(#efefef, #b0b0b0);
+    padding: .5rem;
+
+    .sub-title {
+      color: #444;
+    }
+  }
+
+  &.boxed {
+    border: 1px solid #e0e0e0;
+    border-radius: .5rem;
+
+    .bad-head {
+      background: linear-gradient(#efefef, #ececec);
+      padding: .2rem;
+    }
+  }
+
+  &.edited {
+    background: #edf8fc;
+    border-color: #318ebc;
+
+    .bad-head {
+      background: linear-gradient(#e8feff, #bbd6ea);
+    }
+  }
+
+  .ant-collapse-item.bad-section-collapse {
+    > .ant-collapse-header {
+      padding: 0 0 0 10px;
+      background: linear-gradient(#efefef, #b0b0b0);
+
+      .ant-collapse-expand-icon {
+        padding: 20px 0 0 0;
+      }
+      .ant-collapse-content-box {
+        padding: 0;
+      }
+    }
+
+  }
+}

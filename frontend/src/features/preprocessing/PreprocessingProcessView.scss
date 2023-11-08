@@ -1,0 +1,18 @@
+.preprocessing-process {
+
+  .special-events {
+    .special-event {
+      margin-top: .4rem;
+      .event-head {
+        font-weight: bold;
+        background: #eee;
+        padding: 0.1rem;
+      }
+      .event-content {
+        max-height: 12rem;
+        max-width: 50%;
+        overflow: scroll;
+      }
+    }
+  }
+}

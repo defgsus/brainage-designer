@@ -1,0 +1,13 @@
+.values {
+
+  tr.clickable {
+    &:hover {
+      background: rgba(0, 0, 0, .1);
+    }
+  }
+
+  .value-name {
+    font-weight: bold;
+    margin-right: 1rem;
+  }
+}

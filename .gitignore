@@ -1,0 +1,16 @@
+*.json
+
+bad/static/index.*
+bad/static/brain.*
+scratchpad/
+.env
+docker-compose.yml
+
+env/
+venv/
+
+.idea/
+*.iml
+
+*.pyc
+__pycache__/

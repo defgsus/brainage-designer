@@ -1,0 +1,82 @@
+.modules {
+
+  .module-group {
+    .module-group-head {
+      height: 2rem;
+      .module-group-title {
+        font-size: 1.125rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .module {
+    border: 1px solid #aaa;
+    border-radius: .2rem;
+    background: #eee;
+    min-width: 20rem;
+
+    &.highlight {
+      background: #cec;
+      border-color: #7a7;
+    }
+
+    &.dragging {
+      border-style: dashed;
+    }
+
+    &.dropping {
+      border-width: 2px;
+    }
+
+    .module-header {
+      padding: .3rem;
+      background: #ddd;
+      .module-name {
+        font-size: 110%;
+      }
+      .ant-btn {
+        height: 1.4rem;
+        line-height: .8rem;
+      }
+
+      .anticon-file.selected {
+        svg { fill: red }
+      }
+    }
+    .module-content {
+      margin: .3rem;
+
+      .module-content-divider {
+        width: 0;
+        border: 1px solid rgba(0, 0, 0, .2);
+        margin: 0 .5rem;
+      }
+
+      .module-objects {
+        font-family: monospace;
+
+        .file-row {
+          display: flex;
+          flex-direction: row;
+          margin-bottom: .1rem;
+
+          &.selectable {
+            cursor: pointer;
+            /*&:hover {
+              background-color: #ddd;
+            }*/
+          }
+
+          .file-icon {
+            flex-shrink: 1;
+          }
+          .file-name {
+            padding: 0 .2rem;
+          }
+        }
+      }
+
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.attributes-table {
+  overflow: scroll;
+
+  &.small {
+    max-width: 50rem;
+  }
+
+  thead.ant-table-thead {
+    th.with-mapping {
+      background-color: #ffd;
+    }
+  }
+
+}
+
+.attributes-table, .source-files-table {
+  .ant-table-row {
+    &.incomplete-data {
+      //background: #fecfcf;
+      background: #faeeee;
+      color: #ac0000;
+    }
+  }
+}

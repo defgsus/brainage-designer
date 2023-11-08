@@ -1,0 +1,21 @@
+.bad-table-view {
+
+  thead.ant-table-thead {
+
+    .bad-sorter {
+      .anticon {
+        margin: -2px;
+        font-size: 16px;
+        color: #aaa;
+
+        &:hover {
+          color: #777;
+        }
+
+        &.selected {
+          color: #5a9eff;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+services:
+  web:
+    build: .
+    ports:
+      - "80:9009"
+    volumes:
+      - <PATH-TO-DATA>:/bad-data
+      - <PATH-TO-MATLAB>:/matlab-runtime
+      - <PATH-TO-CAT12>:/cat12-standalone
+
+    environment:
+      - BAD_DATA_PATH=/bad-data
+      - BAD_MATLAB_PATH=/matlab-runtime
+      - BAD_CAT12_PATH=/cat12-standalone
+      - BAD_DATABASE_HOST=database
+      - BAD_DATABASE_USER=db-user
+      - BAD_DATABASE_PASSWORD=db-password
+    depends_on:
+      - database
+
+  database:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=db-user
+      - MONGO_INITDB_ROOT_PASSWORD=db-password
