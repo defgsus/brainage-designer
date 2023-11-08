@@ -17,4 +17,8 @@ jobs:
       with:
         node-version: 17.9.1
     - name: build
-      run: ./build-frontend.sh
+      run: |
+        cd frontend
+        yarn
+        cd ..
+        ./build-frontend.sh
