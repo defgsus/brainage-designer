@@ -26,7 +26,7 @@ TEMPLATE_PATH: Path = SOURCE_PATH / "templates"
 DATA_PATH: Path = config("BAD_DATA_PATH", default=Path("~/").expanduser(), cast=Path)
 TEMP_PATH: Path = config(
     "BAD_TEMP_PATH",
-    default=str(Path(tempfile.gettempdir()) / "brainage-pipeline"),
+    default=str(Path(tempfile.gettempdir()) / "brainage-designer"),
     cast=Path,
 )
 
