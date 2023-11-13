@@ -36,9 +36,7 @@ jobs:
         git add -f bad/static/index*
         git status
         git commit -m"build frontend"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${GITHUB_REF_NAME}-frontend
+    - name: push changes
+      run: |
+        git push -u origin ${GITHUB_REF_NAME}-frontend
       
