@@ -1,9 +1,7 @@
-name: Build frontend
+name: build frontend
 
 on:
   push:
-    branches: ["development"]
-  pull_request:
     branches: ["development"]
 
 jobs:
@@ -16,9 +14,29 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 17.9.1
-    - name: build
+    - name: switch to frontend branch
+      run: |
+        echo switching to branch ${GITHUB_HEAD_REF}-frontend
+        git checkout ${GITHUB_HEAD_REF}-frontend || git checkout -b ${GITHUB_HEAD_REF}-frontend
+        git merge ${GITHUB_HEAD_REF}-frontend
+    - name: build frontend
       run: |
         cd frontend
         yarn
         cd ..
         ./build-frontend.sh
+    - name: config git user
+      run: |
+        curl -s -u ${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }} https://api.github.com/users/${GITHUB_ACTOR} > ${GITHUB_ACTOR}.json
+        git config user.email "$(cat ${GITHUB_ACTOR}.json | jq -r .email)"
+        git config user.name "frontend-bot"
+      - name: commit changes
+        run: |
+          git add -f bad/static/brain*
+          git add -f bad/static/index*
+          git status
+          git commit -m"build frontend"
+      - name: push changes
+        run: |
+          git push -u origin ${GITHUB_HEAD_REF}-frontend || (git pull --rebase --no-edit && git push -u origin ${GITHUB_HEAD_REF}-frontend)
+          
