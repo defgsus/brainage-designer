@@ -30,13 +30,12 @@ jobs:
         curl -s -u ${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }} https://api.github.com/users/${GITHUB_ACTOR} > ${GITHUB_ACTOR}.json
         git config user.email "$(cat ${GITHUB_ACTOR}.json | jq -r .email)"
         git config user.name "frontend-bot"
-      - name: commit changes
-        run: |
-          git add -f bad/static/brain*
-          git add -f bad/static/index*
-          git status
-          git commit -m"build frontend"
-      - name: push changes
-        run: |
-          git push -u origin ${GITHUB_HEAD_REF}-frontend || (git pull --rebase --no-edit && git push -u origin ${GITHUB_HEAD_REF}-frontend)
-          
+    - name: commit changes
+      run: |
+        git add -f bad/static/brain*
+        git add -f bad/static/index*
+        git status
+        git commit -m"build frontend"
+    - name: push changes
+      run: |
+        git push -u origin ${GITHUB_HEAD_REF}-frontend || (git pull --rebase --no-edit && git push -u origin ${GITHUB_HEAD_REF}-frontend)
