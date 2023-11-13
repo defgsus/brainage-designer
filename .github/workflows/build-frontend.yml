@@ -16,9 +16,9 @@ jobs:
         node-version: 17.9.1
     - name: switch to frontend branch
       run: |
-        echo switching to branch ${GITHUB_HEAD_REF}-frontend
-        git checkout ${GITHUB_HEAD_REF}-frontend || git checkout -b ${GITHUB_HEAD_REF}-frontend
-        git merge ${GITHUB_HEAD_REF}-frontend
+        echo switching to branch ${GITHUB_REF_NAME}-frontend
+        git checkout ${GITHUB_REF_NAME}-frontend || git checkout -b ${GITHUB_REF_NAME}-frontend
+        git merge ${GITHUB_REF_NAME}-frontend
     - name: build frontend
       run: |
         cd frontend
@@ -38,4 +38,4 @@ jobs:
         git commit -m"build frontend"
     - name: push changes
       run: |
-        git push -u origin ${GITHUB_HEAD_REF}-frontend || (git pull --rebase --no-edit && git push -u origin ${GITHUB_HEAD_REF}-frontend)
+        git push -u origin ${GITHUB_REF_NAME}-frontend || (git pull --rebase --no-edit && git push -u origin ${GITHUB_REF_NAME}-frontend)
