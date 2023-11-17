@@ -10,8 +10,8 @@ from bad.modules import *
 from tests.base import BadTestCase
 
 
-@unittest.skipIf(not config.CAT12_PATH.exists(), "CAT12 package not at it's place")
-@unittest.skipIf(not config.MATLAB_PATH.exists(), "matlab not at it's place")
+@unittest.skipIf(len(str(config.CAT12_PATH)) <= 1 or not config.CAT12_PATH.exists(), "CAT12 package not at it's place")
+@unittest.skipIf(len(str(config.MATLAB_PATH)) <= 1 or not config.MATLAB_PATH.exists(), "matlab not at it's place")
 class TestCat12Modules(BadTestCase):
 
     def test_cat12_version(self):

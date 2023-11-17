@@ -1,6 +1,108 @@
 # BrainAGE Designer
 
+[![test](https://github.com/defgsus/brainage-designer/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/defgsus/brainage-designer/actions/workflows/tests.yml)
+[![test](https://github.com/defgsus/brainage-designer/actions/workflows/build-frontend-main.yml/badge.svg?branch=main)](https://github.com/defgsus/brainage-designer/actions/workflows/build-frontend-main.yml)
+
+**Brain** **A**ge **G**ap **E**stimation framework with browser-based user interface.
+
+![screenshot](docs/img/screenshot-analysis.png)
+
+Some of the features:
+
+- all experiments are controlled from the web-UI
+- supports arbitrary preprocessing pipelines
+- fine control over analysis / model creation
+- all experiments are stored to database for revisiting them later
+
+
 ## Installation
+
+### Requirements
+
+- [Python](https://www.python.org/) 3.8 or later
+- [MongoDB](https://www.mongodb.com/) 3.6 or later 
+- [Matlab Runtime](https://www.mathworks.com/products/compiler/matlab-runtime.html) v93 (optional)
+
+### Download
+
+Using the git command-line tool:
+
+```shell
+cd /my/projects  # or where you want to place it
+git clone https://github.com/defgsus/brainage-designer.git
+cd brainage-designer
+git checkout development-frontend
+```
+
+or you can download [a zip file](https://github.com/defgsus/brainage-designer/archive/refs/heads/development-frontend.zip)
+and extract it.
+
+### Running on localhost
+
+```shell
+# create new python environment
+python -m venv env
+# activate     
+source env/bin/activate
+# install python packages
+pip install -r requirements.txt
+pip install https://github.com/JamesRitchie/scikit-rvm/archive/master.zip
+```
+
+[Install MongoDB](https://www.mongodb.com/docs/manual/installation/)
+
+Start server and worker:
+
+```shell
+./start-server.sh
+```
+
+visit [http://localhost:9009](http://localhost:9009)
+
+#### Configuration
+
+The local setup can be configure by creating a `.env` file
+in the root directory. It can have the following entries:
+
+```shell
+# enable debugging mode (mainly for web-server, more text output)
+BAD_DEBUG=true
+
+# -- directories --
+
+# the root path below which everything can be accessed
+BAD_DATA_PATH=/home/me
+# temporary directory to use
+TEMP_PATH=/tmp/brainage-designer
+
+# -- matlab --
+
+# path to the matlab runtime 
+MATLAB_PATH=/home/me/MATLAB_Runtime/v93
+# path to the matlab-based CAT12 toolbox
+CAT12_PATH=/home/me/CAT12.8.1_r2042_R2017b_MCR_Linux
+
+# -- API server --
+
+# change the address of the API (and frontend) server
+SERVER_HOST=localhost
+SERVER_PORT=9009
+
+# -- mongodb --
+
+# rename the database
+DATABASE_NAME=brainage-designer
+# location of the mongodb server
+DATABASE_HOST=localhost
+DATABASE_PORT=27017
+# to handle authentication with mongodb
+DATABASE_USER=brainage-user
+DATABASE_PASSWORD=brainage-password
+```
+
+
+
+## Installation via 'Docker' 
 
 Install a recent version of [Docker Engine](https://docs.docker.com/engine/install/) 
 or the **Docker Desktop** if you can't help it.
@@ -46,13 +148,13 @@ docker run -ti -p 80:9009 brainage-designer
 ```
 
 
-## development
+# Development
 
 ### prepare environments
 
 ```shell
-# for python the typical
-virtualenv -p python3 env
+# for python the typical..
+python -m venv env
 source env/bin/activate
 pip install -r requirements.txt
 

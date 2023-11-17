@@ -4,10 +4,10 @@ import os
 import signal
 import uuid
 import traceback
-from typing import Mapping, Any, Optional, Union, Sequence
+from typing import Mapping, Any, Optional, Union, Sequence, List
 
 import pymongo
-from pymongo.database import Collection, List
+from pymongo.database import Collection
 
 from bad.db import DatabaseMixin
 from bad import logger
