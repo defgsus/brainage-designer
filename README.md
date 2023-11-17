@@ -1,5 +1,8 @@
 # BrainAGE Designer
 
+[![test](https://github.com/defgsus/brainage-designer/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/defgsus/brainage-designer/actions/workflows/tests.yml)
+[![test](https://github.com/defgsus/brainage-designer/actions/workflows/build-frontend-main.yml/badge.svg?branch=main)](https://github.com/defgsus/brainage-designer/actions/workflows/build-frontend-main.yml)
+
 **Brain** **A**ge **G**ap **E**stimation framework with browser-based user interface.
 
 ![screenshot](docs/img/screenshot-analysis.png)

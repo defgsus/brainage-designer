@@ -1,0 +1,36 @@
+name: build frontend
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 17.9.1
+    - name: build frontend
+      run: |
+        cd frontend
+        yarn
+        cd ..
+        ./build-frontend.sh
+    - name: config git user
+      run: |
+        curl -s -u ${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }} https://api.github.com/users/${GITHUB_ACTOR} > ${GITHUB_ACTOR}.json
+        git config user.email "$(cat ${GITHUB_ACTOR}.json | jq -r .email)"
+        git config user.name "frontend-bot"
+    - name: commit changes
+      run: |
+        git add -f bad/static/brain*
+        git add -f bad/static/index*
+        git status
+        git commit -m"build frontend"
+    - name: push changes
+      run: |
+        git push
